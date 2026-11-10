@@ -1,6 +1,11 @@
-<h2>Product List</h2>
-<!-- <div *ngFor="let product of products">
-    {{product.name}}
-</div> -->
+<div  class="row" *ngIf="products.length>0; else noProducts">
 
-<app-product-details *ngFor="let p of products" [product]="p" ></app-product-details>
+    <div class="col-md-4"  *ngFor="let product of products">
+        
+            <app-product-details [product]="product"></app-product-details>
+        
+    </div>
+</div>
+<ng-template #noProducts>
+    <div class="alert alert-warning"> No product found</div>
+</ng-template>
